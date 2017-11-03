@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css')}}">
+      <title> {{catagory.name}} </title>
+      <meta charset="UTF-8">
+</head>
+
+<body>
+  <div class='flexpadding'>
+  </div>
+  <div class='flexcontainer'>
+    <header class='mainheader'>
+      <a class='right' href="{{url_for('disconnect')}}">logout</a>
+      <a class='left' href="{{url_for('showCatalog')}}">to catalog</a>
+      <h1 class='header'>{{catagory.name}}</h1>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      {% block body %}{% endblock %}
+    </header>
+    <main>
+      <a href='{{ url_for('newItem', cat_id=catagory.id) }}'>Create new item</a>
+        {% for i in items %}
+        <section class='sectioncontainer'>
+          <article class='itemname'>
+          <div class='name'><a href="{{ url_for('showItem', cat_id=catagory.id, item_id=i.id) }}">{{i.name}}</a></div>
+          </article>
+          <article class='itemdescription'>
+            <div class='description'>{{i.description}}</div>
+          </article>
+          <article class='itemcontrols'>
+            <div class='controls'>
+              <a href='{{ url_for('deleteItem', cat_id=catagory.id, item_id=i.id) }}'>Delete</a>
+              <a href='{{ url_for('editItem', cat_id=catagory.id, item_id=i.id) }}'>Edit</a>
+            </div>
+          </article>
+        </section>
+        {% endfor %}
+    </main>
+  </div>
+  <div class='flexpadding'>
+  </div>
+</body>
+
+</html>

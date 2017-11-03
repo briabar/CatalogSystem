@@ -1,0 +1,93 @@
+body {
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.flexcontainer {
+   display: -webkit-flex;
+   display: flex;
+   flex-flow: column nowrap;
+   -webkit-flex: 9;
+   flex: 9;
+}
+
+.flexpadding {
+   -webkit-flex: 1;
+   flex: 1;
+}
+
+.mainheader {
+  display: block;
+  margin: 4px;
+  padding: 5px;
+  min-height: 100px;
+  border: 1px solid #eebb55;
+  border-radius: 7pt;
+  background: #ffeebb;
+  font-size: 2em;
+  text-align: center;
+}
+
+.sectioncontainer {
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: baseline;
+  margin-top: 14px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.catagories {
+  -webkit-flex: 1;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  border: 1px dotted grey;
+  border-bottom: 0px;
+}
+
+.items {
+  -webkit-flex: 1;
+  flex: 1;
+  justify-content: baseline;
+  text-align: center;
+  border: 1px dotted grey;
+  border-bottom: 0px;
+}
+
+.itemname {
+  -webkit-flex: 1;
+  flex: 1;
+  align-self: baseline;
+  font-size: 1.4em;
+}
+
+.itemdescription {
+  -webkit-flex: 1;
+  flex: 1;
+  align-self: baseline;
+}
+
+.itemcontrols {
+  -webkit-flex: 1;
+  flex: 1;
+  align-self: baseline;
+}
+
+.name {
+  float: left;
+  margin-left: 10%;
+}
+
+.controls {
+  float: right;
+  margin-right: 10%;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css')}}">
+      <title> Delete {{catagory.name}} </title>
+      <meta charset="UTF-8">
+</head>
+<body>
+  <div class='flexpadding'>
+  </div>
+  <div class='flexcontainer'>
+    <header class='mainheader'>
+      <a class='left' href="{{url_for('showCatalog')}}">to catalog</a>
+      <a class='right' href="{{url_for('disconnect')}}">logout</a>
+      <h1> Are you sure you want to delete {{catagory.name}}? </h1>
+    </header>
+    <main>
+      <section class='sectioncontainer'>
+        <form action="{{ url_for('deleteCatagory', cat_id=catagory.id)}}" method = 'post'>
+          <input type='submit', value = 'Delete'>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="confirm" value="True"> Confirm. WARNING! This will delete all items in catagory.
+            </label>
+          </div>
+          <a href = "{{ url_for('showCatagory', cat_id=catagory.id)}}"> Cancel </a>
+        </form>
+      </section>
+    </main>
+  </div>
+  <div class='flexpadding'>
+  </div>
+</body>
+</html>

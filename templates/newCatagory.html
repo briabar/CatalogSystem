@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css')}}">
+      <title> New Category </title>
+      <meta charset="UTF-8">
+</head>
+<body>
+<div class='flexpadding'>
+</div>
+<div class='flexcontainer'>
+  <header class='mainheader'>
+    <a class='left' href="{{url_for('showCatalog')}}">to catalog</a>
+    <a class='right' href="{{url_for('disconnect')}}">logout</a>
+    <h1>New Catagory</h1>
+  </header>
+  <main>
+    <section class='sectioncontainer'>
+      <form action="{{ url_for('newCatagory')}}" method='post'>
+
+        <p>Name:</p>
+        <input type ='text' size='30' name='name'>
+        <p>description:</p>
+        <input type ='text' size='30' name='description'>
+
+        <input type='submit' value='Create'>
+        <a href = '{{ url_for('showCatalog') }}'>Cancel</a>
+      </form>
+    </section>
+  </main>
+</div>
+<div class='flexpadding'>
+</div>
+</body>
+</html>

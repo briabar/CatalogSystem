@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css')}}">
+      <title> Edit {{catagory.name}} </title>
+      <meta charset="UTF-8">
+</head>
+<body>
+<div class='flexpadding'>
+</div>
+<div class='flexcontainer'>
+  <header class='mainheader'>
+    <a class='right' href="{{url_for('disconnect')}}">logout</a>
+    <h1>Edit Item</h1>
+  </header>
+  <main>
+    <section class='sectioncontainer'>
+      <form action="#" method='post'>
+
+        <p>Name:</p>
+        <input type ='text' size='30' name='name' placeholder='{{catagory.name}}'>
+        <p>Discription:</p>
+        <input type ='text' size='30' name='description' placeholder='{{catagory.description}}'>
+
+        <input type='submit' value='Edit'>
+        <a href = '{{ url_for('showCatalog') }}'>Cancel</a>
+      </form>
+    </section>
+  </main>
+</div>
+<div class='flexpadding'>
+</div>
+</body>
+</html>
