@@ -1,7 +1,3 @@
-import os, sys
-app_root = os.path.dirname(os.path.realpath(__file__))
-sys.path.insert(0, app_root)
-print sys.path
 from flask import (flash,
                    Flask,
                    jsonify,
@@ -29,10 +25,10 @@ import requests
 app = Flask(__name__)
 
 CLIENT_ID = json.loads(
-    open(app_root+'/client_secrets.json', 'r').read())['web']['client_id']
+    open('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog of Amazing Things"
 
-engine = create_engine('postgresql:///catalogdb.db')
+engine = create_engine('sqlite:///catalogdb.db')
 Base.metadata.bing = engine
 
 DBsession = sessionmaker(bind=engine)
@@ -488,7 +484,6 @@ def disconnect():
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
-    app.debug = False
+    app.debug = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host='0.0.0.0')
-
+    app.run(host='0.0.0.0', port=5000)

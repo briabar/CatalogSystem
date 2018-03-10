@@ -486,9 +486,9 @@ def disconnect():
         return redirect(url_for('showCatalog'))
 
 
+app.secret_key = 'asdbkjer'
 if __name__ == '__main__':
-    app.secret_key = 'super_secret_key'
     app.debug = False
     app.config['TEMPLATES_AUTO_RELOAD'] = True
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
 

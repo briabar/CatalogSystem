@@ -62,5 +62,5 @@ class Items(Base):
         }
 
 
-engine = create_engine('sqlite:///catalogdb.db')
+engine = create_engine('postgresql:///catalogdb.db')
 Base.metadata.create_all(engine)
